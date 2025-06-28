@@ -1,0 +1,11 @@
+Intermediate Level
+
+1.
+Question: How does SIP work?
+Level: Intermediate
+Expected: "A SIP (Systematic Investment Plan) is a method of investing fixed amounts in mutual funds regularly. It helps in averaging cost and building discipline."
+
+2.
+Question: What happens if I miss a credit card payment?
+Level: Intermediate
+Expected: "Missing a payment can lead to late fees, increased interest, and a drop in your credit score. It's important to pay at least the minimum due."

@@ -54,6 +54,7 @@ with tab1:
             else:
                 st.success(summary)
 
+
 # --- TAB 2: SCAM DETECTOR ---
 with tab2:
     st.header("🚨 Scam Detector")
@@ -61,48 +62,45 @@ with tab2:
 
     scam_input = st.text_area("📝 Paste the suspicious content here")
 
-    col1, col2 = st.columns([3, 1])
-    with col2:
-        if st.button("🔍 Analyze"):
-            if scam_input.strip():
-                with st.spinner("Scanning..."):
-                    result = detect_scam(scam_input)
-                with st.expander("🚨 Scam Analysis Result"):
-                    st.warning(result)
-            else:
-                st.info("Please paste something to analyze.")
+    if st.button("🔍 Analyze"):
+        if scam_input.strip():
+            with st.spinner("Scanning..."):
+                result = detect_scam(scam_input)
+
+            with st.expander("📋 Scam Analysis Result", expanded=True):
+                # Customize based on keywords if needed
+                if "not a scam" in result.lower() or "safe" in result.lower():
+                    st.success(result)
+                else:
+                    st.error(result)
+        else:
+            st.info("Please paste something to analyze.")
+
 
 # --- TAB 3: RISK PROFILE GENERATOR ---
 with tab3:
-    st.header("📈 Custom Financial Risk Profile")
-    st.caption("Answer a few quick questions and get your risk heatmap and advice")
+    st.subheader("📈 Your Financial Risk Profile")
 
     with st.form("risk_form"):
-        age = st.slider("🎂 Age", 18, 70, 30)
-        income = st.number_input("💰 Monthly Income (₹)", min_value=0)
-        loan = st.number_input("🏦 Monthly Loan EMI (₹)", min_value=0)
-        submitted = st.form_submit_button("Evaluate My Risk")
+        age = st.slider("Your Age", 18, 70, 30)
+        income = st.number_input("Monthly Income (₹)", min_value=0)
+        loan = st.number_input("Total Monthly Loan EMI (₹)", min_value=0)
+        chart_type = st.selectbox("📊 Select Chart Type", ["Plotly Gauge", "Matplotlib Bar"])
+        submitted = st.form_submit_button("Evaluate Risk")
 
         if submitted:
             score = calculate_risk(age, income, loan)
+            st.metric("🔢 Risk Score", f"{score}")
+            st.write(get_risk_advice(score))
 
-            # Dynamic Color Display
-            if score <= 3:
-                color = "green"
-            elif score <= 6:
-                color = "orange"
+            # Use chosen chart
+            if chart_type == "Plotly Gauge":
+                plot_risk(score, mode="plotly")
             else:
-                color = "red"
+                plot_risk(score, mode="matplotlib")
 
-            st.markdown(f"""
-                <div class='metric-container'>
-                    <h4 style='color:{color}'>Risk Score: {score} / 10</h4>
-                </div>
-            """, unsafe_allow_html=True)
 
-            st.info(get_risk_advice(score))
-            plot_risk(score)
-
+            
 # --- TAB 4: FINANCIAL TUTOR ---
 with tab4:
     st.header("🎓 Financial Literacy Coach")

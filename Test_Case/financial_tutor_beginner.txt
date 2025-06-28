@@ -1,0 +1,11 @@
+Beginner Level
+
+1.
+Question: What is a mutual fund?
+Level: Beginner
+Expected: A simple explanation of mutual fund, like: "A mutual fund is a pool of money collected from many investors to invest in stocks, bonds, or other securities."
+
+2.
+Question: What is credit score?
+Level: Beginner
+Expected: "A credit score is a number that shows how trustworthy you are in repaying loans. It ranges from 300 to 900. Higher is better."

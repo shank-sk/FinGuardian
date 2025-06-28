@@ -1,0 +1,11 @@
+Expert Level
+
+1.
+Question: How does the stock market affect mutual funds?
+Level: Expert
+Expected: "Mutual funds that invest in equities are directly influenced by market movements. For instance, a market downturn reduces fund NAV."
+
+2.
+Question: What is the difference between ELSS and PPF?
+Level: Expert
+Expected: "ELSS (Equity Linked Saving Scheme) is a tax-saving mutual fund with market-linked returns and 3-year lock-in. PPF (Public Provident Fund) is a government-backed savings scheme with fixed interest and 15-year lock-in."
