@@ -16,3 +16,6 @@ typing-extensions>=4.5.0
 
 # For form styling and animations
 Pillow>=10.0.0
+
+streamlit-extras
+
