@@ -9,13 +9,16 @@ st.set_page_config(page_title="🛡️ FinGuardian", layout="wide", page_icon="�
 
 st.markdown("""
     <style>
+    html, body, [class*="css"] {
+        font-family: 'Segoe UI', sans-serif;
+    }
     .big-title {
-        font-size: 36px !important;
+        font-size: 2.5rem;
         font-weight: 700;
         margin-bottom: 10px;
     }
     .subtext {
-        font-size: 16px;
+        font-size: 1rem;
         color: #888;
     }
     .metric-container {
@@ -23,6 +26,20 @@ st.markdown("""
         border-radius: 8px;
         padding: 10px;
         text-align: center;
+    }
+    @media only screen and (max-width: 768px) {
+        .big-title {
+            font-size: 1.8rem !important;
+        }
+        .subtext {
+            font-size: 0.9rem !important;
+        }
+        .stButton > button {
+            width: 100% !important;
+        }
+        .stTextInput input, .stTextArea textarea, .stSelectbox, .stRadio {
+            width: 100% !important;
+        }
     }
     </style>
 """, unsafe_allow_html=True)
@@ -94,13 +111,9 @@ with tab3:
             st.write(get_risk_advice(score))
 
             # Use chosen chart
-            if chart_type == "Plotly Gauge":
-                plot_risk(score, mode="plotly")
-            else:
-                plot_risk(score, mode="matplotlib")
+            plot_risk(score, mode=chart_type.lower().replace(" ", ""))
 
 
-            
 # --- TAB 4: FINANCIAL TUTOR ---
 with tab4:
     st.header("🎓 Financial Literacy Coach")
