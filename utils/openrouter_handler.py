@@ -1,15 +1,21 @@
-import requests
 import os
-from dotenv import load_dotenv
+import requests
 
-load_dotenv()
+# ✅ Try Streamlit secrets if available
+try:
+    import streamlit as st
+    OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY") or st.secrets["OPENROUTER_API_KEY"]
+except:
+    # ✅ Fallback to local dotenv
+    from dotenv import load_dotenv
+    load_dotenv()
+    OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 
-OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
-
+# ✅ API Headers
 HEADERS = {
     "Authorization": f"Bearer {OPENROUTER_API_KEY}",
     "Content-Type": "application/json",
-    "HTTP-Referer": "https://github.com/shank-sk/FinGuardian",  # ✅ Your GitHub repo URL
+    "HTTP-Referer": "https://github.com/shank-sk/FinGuardian",
     "X-Title": "FinGuardian"
 }
 
