@@ -4,6 +4,8 @@ from modules.policy_analyzer import extract_text, analyze_policy
 from modules.scam_detector import detect_scam
 from modules.risk_profile import calculate_risk, plot_risk, get_risk_advice
 from modules.financial_tutor import call_tutor
+from utils.openrouter_handler import call_openrouter
+
 
 st.set_page_config(page_title="🛡️ FinGuardian", layout="wide", page_icon="🛡️")
 
