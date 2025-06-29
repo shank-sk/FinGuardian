@@ -1,1 +1,22 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment
 .env
+
+# Jupyter/IPython
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+
+# Editor config
+.vscode/
+.idea/
+
+# Log files
+*.log
+
+# OS metadata
+Thumbs.db
