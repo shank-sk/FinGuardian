@@ -113,7 +113,12 @@ with tab3:
             st.write(get_risk_advice(score))
 
             # Use chosen chart
-            plot_risk(score, mode=chart_type.lower().replace(" ", ""))
+            mode_map = {
+                "Plotly Gauge": "plotly",
+                "Matplotlib Bar": "matplotlib"
+        }
+        plot_risk(score, mode=mode_map.get(chart_type, "plotly"))
+
 
 
 # --- TAB 4: FINANCIAL TUTOR ---
