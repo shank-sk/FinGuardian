@@ -116,8 +116,8 @@ with tab3:
             mode_map = {
                 "Plotly Gauge": "plotly",
                 "Matplotlib Bar": "matplotlib"
-        }
-        plot_risk(score, mode=mode_map.get(chart_type, "plotly"))
+            }
+            plot_risk(score, mode=mode_map.get(chart_type, "plotly"))
 
 
 
